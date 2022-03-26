@@ -1,5 +1,10 @@
 # SummitBCN
+
 Avalanche summit 2022 Barcelona Web wallet.
+
+## Resources
+
+- Mockups on [Miro](https://miro.com/app/board/uXjVOCSh6O0=/)
 
 ## Run UI
 
