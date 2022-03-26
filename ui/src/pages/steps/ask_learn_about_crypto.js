@@ -14,7 +14,7 @@ export default function AskLearnAboutCrypto() {
 					justify="center"
 					direction="column"
 					height="100vh"
-					px={[15, 50]}
+					px={[15, 50, 200]}
 				>
 					<Heading>No Worries</Heading>
 					<Heading>Wanna know how we help you earn more crypto?</Heading>
