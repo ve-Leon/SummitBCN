@@ -6,12 +6,22 @@ import CreateAnAccount from './steps/1_create_account';
 
 export default function Home() {
 	return (
-		<div className="container">
+		<>
 			<Head>
-				{/* <div>
-					<MenuIcon />
-				</div> */}
+				<title>Your Crypto Wallet</title>
 			</Head>
-		</div>
+			<div>
+				<Button>
+					<Link href="/steps/1_create_account">
+						<a>Create a cryto account</a>
+					</Link>
+				</Button>
+				<Button>
+					<Link href="/dashboard">
+						<a>I have a crypto account</a>
+					</Link>
+				</Button>
+			</div>
+		</>
 	);
 }
