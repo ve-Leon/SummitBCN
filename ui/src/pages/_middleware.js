@@ -1,6 +1,8 @@
 import { NextResponse, NextRequest } from 'next/server';
 import Router from 'next/router';
 
+// TODO: implement redirection along with putting current content on
+// `index.js` to steps folder.
 export function middleware(request, event) {
 	const { pathname, basePath } = request.nextUrl;
 	console.log(basePath);
@@ -19,6 +21,8 @@ export function middleware(request, event) {
 	return NextResponse.next();
 }
 
+// TODO: if user returns to the home url, we can redirect him to
+// the last step he took.
 const Allowance = () => {
 	const stepsRequired = ['create_account', 'submit_credit_card_info'];
 };

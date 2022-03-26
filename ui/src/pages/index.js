@@ -1,8 +1,6 @@
-import Head from 'next/head';
+import { Box, Button, Heading, MenuIcon, Flex } from '@chakra-ui/react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Heading, MenuIcon } from '@chakra-ui/react';
-import CreateAnAccount from './steps/1_create_account';
+import Head from 'next/head';
 
 export default function Home() {
 	return (
@@ -10,18 +8,24 @@ export default function Home() {
 			<Head>
 				<title>Your Crypto Wallet</title>
 			</Head>
-			<div>
-				<Button>
-					<Link href="/steps/1_create_account">
-						<a>Create a cryto account</a>
-					</Link>
-				</Button>
-				<Button>
-					<Link href="/dashboard">
-						<a>I have a crypto account</a>
-					</Link>
-				</Button>
-			</div>
+			<main>
+				<Flex align="center" justify="center" direction="column" height="100vh">
+					<Box mb={5}>
+						<Button width={['270px', '350px']}>
+							<Link href="/steps/create_account">
+								<a>Create a cryto account</a>
+							</Link>
+						</Button>
+					</Box>
+					<Box>
+						<Button width={['270px', '350px']}>
+							<Link href="/dashboard">
+								<a>I have a crypto account</a>
+							</Link>
+						</Button>
+					</Box>
+				</Flex>
+			</main>
 		</>
 	);
 }
