@@ -14,7 +14,7 @@ export default function InformAddCreditCard() {
 					justify="center"
 					direction="column"
 					height="100vh"
-					px={[15, 50]}
+					px={[15, 50, 200]}
 				>
 					<Heading>
 						Use your credit card to add money to your account, which will then
