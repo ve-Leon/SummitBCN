@@ -2,7 +2,7 @@ import { Button, Heading, Box, Flex } from '@chakra-ui/react';
 import Link from 'next/link';
 import Head from 'next/head';
 
-export default function CreateAnAccount() {
+export default function CreateAccountStepOne() {
 	return (
 		<>
 			<Head>

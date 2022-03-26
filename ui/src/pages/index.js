@@ -13,7 +13,7 @@ export default function Home() {
 					<Box mb={5}>
 						<Button width={['270px', '350px']}>
 							<Link href="/steps/create_account_step_1">
-								<a>Create a cryto account</a>
+								<a>Create a crypto account</a>
 							</Link>
 						</Button>
 					</Box>

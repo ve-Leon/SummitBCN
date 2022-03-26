@@ -6,7 +6,7 @@ export default function DontCreateAccount() {
 	return (
 		<>
 			<Head>
-				<title>What is staking?</title>
+				<title>What is Staking?</title>
 			</Head>
 			<main>
 				<Flex

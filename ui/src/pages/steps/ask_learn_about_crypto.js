@@ -6,7 +6,7 @@ export default function AskLearnAboutCrypto() {
 	return (
 		<>
 			<Head>
-				<title>Learn about crypto?</title>
+				<title>Want to Learn about Crypto?</title>
 			</Head>
 			<main>
 				<Flex
@@ -21,7 +21,7 @@ export default function AskLearnAboutCrypto() {
 					<Box mt={30}>
 						<Button width={['250px', '300px']}>
 							<Link href="/steps/learn_about_crypto">
-								<a>Yeah, I want to know more</a>
+								<a>Yeah, I want to know more.</a>
 							</Link>
 						</Button>
 					</Box>

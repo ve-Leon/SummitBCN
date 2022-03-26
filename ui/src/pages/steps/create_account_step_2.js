@@ -3,11 +3,11 @@ import Head from 'next/head';
 
 import FormCreateAccount from '../../components/form_create_account';
 
-export default function DontCreateAccount() {
+export default function CreateAccountStepTwo() {
 	return (
 		<>
 			<Head>
-				<title>What is staking?</title>
+				<title>Account Details</title>
 			</Head>
 			<main>
 				<Flex
@@ -17,8 +17,10 @@ export default function DontCreateAccount() {
 					height="100vh"
 					px={[15, 50, 200]}
 				>
-					<Heading>OK, to add money, let's make an e-mail and password</Heading>
-					<FormCreateAccount nextPagePath="/steps/fund_crypto_account" />
+					<Heading>
+						OK, to add money, let's make an e-mail and password.
+					</Heading>
+					<FormCreateAccount nextPagePath="/steps/inform_add_credit_card" />
 				</Flex>
 			</main>
 		</>

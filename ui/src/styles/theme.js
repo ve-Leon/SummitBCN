@@ -28,6 +28,11 @@ export const customTheme = extendTheme({
 				marginBottom: 5,
 			},
 		},
+		Link: {
+			baseStyle: {
+				color: '#e84142',
+			},
+		},
 	},
 	config: {
 		initialColorMode: 'light',

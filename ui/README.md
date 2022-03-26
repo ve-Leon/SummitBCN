@@ -10,6 +10,11 @@ It should not contain to business logic (e.g., backend).
 
 ## TODOs
 
+- Pass data to next screen
+
+## Nice TODOs
+
+- Handle "no page" errors
 - Animation during navigation between screens
 - Back button for navigation in some screens
 - Solve TODOs
