@@ -12,7 +12,7 @@ export default function Home() {
 				<Flex align="center" justify="center" direction="column" height="100vh">
 					<Box mb={5}>
 						<Button width={['270px', '350px']}>
-							<Link href="/steps/create_account">
+							<Link href="/steps/create_account_step_1">
 								<a>Create a cryto account</a>
 							</Link>
 						</Button>

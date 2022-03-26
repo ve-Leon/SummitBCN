@@ -14,7 +14,7 @@ export default function DontCreateAccount() {
 					justify="center"
 					direction="column"
 					height="100vh"
-					px={[15, 50]}
+					px={[15, 50, 200]}
 				>
 					<Heading>
 						Through Staking, you can make income just by lending your crypto.
