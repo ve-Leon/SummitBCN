@@ -2,9 +2,13 @@ import { Box, Button, Heading, MenuIcon, Flex } from '@chakra-ui/react';
 import Link from 'next/link';
 import Head from 'next/head';
 
+import { ChakraProvider } from '@chakra-ui/react'
+
 export default function Home() {
 	return (
-		<>
+		<ChakraProvider>
+
+		
 			<Head>
 				<title>Your Crypto Wallet</title>
 			</Head>
@@ -26,6 +30,6 @@ export default function Home() {
 					</Box>
 				</Flex>
 			</main>
-		</>
+		</ChakraProvider>
 	);
 }
