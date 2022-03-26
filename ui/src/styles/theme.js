@@ -24,6 +24,8 @@ export const customTheme = extendTheme({
 		Heading: {
 			baseStyle: {
 				color: '#e84142',
+				textAlign: 'center',
+				marginBottom: 5,
 			},
 		},
 	},

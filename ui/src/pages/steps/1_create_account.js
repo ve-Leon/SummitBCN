@@ -1,18 +1,39 @@
-import { Button, Heading } from '@chakra-ui/react';
-import { Main } from 'next/document';
+import { Button, Heading, Box, Flex } from '@chakra-ui/react';
+import Link from 'next/link';
 import Head from 'next/head';
-import { Container } from '../../components/steps_container';
 
 export default function CreateAnAccount() {
 	return (
 		<>
 			<Head>
-				<title>Your Crypto Wallet</title>
+				<title>Create an Account</title>
 			</Head>
-			<div>
-				<Button>Create a cryto account</Button>
-				<Button>I have a crypto account</Button>
-			</div>
+			<main>
+				<Flex
+					align="center"
+					justify="center"
+					direction="column"
+					height="100vh"
+					px={[15, 50]}
+				>
+					<Heading>Congratulations!</Heading>
+					<Heading>You have created a crypto account.</Heading>
+					<Box mt={10} mb={3}>
+						<Button width={['270px', '320px']}>
+							<Link href="/steps/2_account_created">
+								<a>Add money to earn more?</a>
+							</Link>
+						</Button>
+					</Box>
+					<Box>
+						<Button width={['270px', '320px']}>
+							<Link href="/steps/2_dont_create_account">
+								<a>Not right now</a>
+							</Link>
+						</Button>
+					</Box>
+				</Flex>
+			</main>
 		</>
 	);
 }
