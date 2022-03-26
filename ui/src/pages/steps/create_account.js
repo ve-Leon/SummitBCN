@@ -20,14 +20,14 @@ export default function CreateAnAccount() {
 					<Heading>You have created a crypto account.</Heading>
 					<Box mt={10} mb={3}>
 						<Button width={['270px', '320px']}>
-							<Link href="/steps/2_account_created">
+							<Link href="/steps/account_created">
 								<a>Add money to earn more?</a>
 							</Link>
 						</Button>
 					</Box>
 					<Box>
 						<Button width={['270px', '320px']}>
-							<Link href="/steps/2_dont_create_account">
+							<Link href="/steps/dont_create_account">
 								<a>Not right now</a>
 							</Link>
 						</Button>

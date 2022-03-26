@@ -16,13 +16,15 @@ export default function DontCreateAccount() {
 					height="100vh"
 					px={[15, 50]}
 				>
-					<Heading>No Worries</Heading>
-					<Heading>Wanna know how we help you earn more crypto?</Heading>
+					<Heading>
+						Through Staking, you can make income just by lending your crypto.
+					</Heading>
+					<Heading>
+						When you Stake your crypto, it helps make crypto more secure.
+					</Heading>
 					<Box mt={30}>
 						<Button width={['250px', '300px']}>
-							<Link href="/steps/know_about_crypto">
-								<a>Yeah, I want to know more</a>
-							</Link>
+							<a target="_blank">I want more details</a>
 						</Button>
 					</Box>
 				</Flex>
