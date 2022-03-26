@@ -6,7 +6,7 @@ export default function DontCreateAccount() {
 	return (
 		<>
 			<Head>
-				<title>Don't Create an Account</title>
+				<title>What is staking?</title>
 			</Head>
 			<main>
 				<Flex
@@ -24,7 +24,9 @@ export default function DontCreateAccount() {
 					</Heading>
 					<Box mt={30}>
 						<Button width={['250px', '300px']}>
-							<a target="_blank">I want more details</a>
+							<a target="_blank" href="https://www.avax.network/">
+								I want more details
+							</a>
 						</Button>
 					</Box>
 				</Flex>

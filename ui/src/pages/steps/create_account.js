@@ -27,7 +27,7 @@ export default function CreateAnAccount() {
 					</Box>
 					<Box>
 						<Button width={['270px', '320px']}>
-							<Link href="/steps/dont_create_account">
+							<Link href="/steps/ask_learn_about_crypto">
 								<a>Not right now</a>
 							</Link>
 						</Button>
