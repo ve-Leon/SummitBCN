@@ -14,6 +14,7 @@ It should not contain to business logic (e.g., backend).
   - `show_risk_option`
 - After click "Buy" in Transak screen, redirect to page `show_risk_options`
 - Page `show_transak` needs to use user's email and password.
+- Dashboard
 - Change urls links:
   - Add a url or link to a new page to the link of `create_account_step_two`
   - Change links `avax.network` one some pages (e.g. page `show_risk_options` )
