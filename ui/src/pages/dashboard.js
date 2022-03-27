@@ -39,7 +39,7 @@ export default function Dashboard() {
 		
 		//using axios
 		try {
-		const response = await axios.get('https://api.covalenthq.com/v1/43114/address/0x7BD4F00D6e8fF333F71e514aE3376Dc822334E43/portfolio_v2/?quote-currency=USD&format=JSON&key=ckey_4dc37b7f69b2402b817bb51c5a0');
+		const response = await axios.get('https://api.covalenthq.com/v1/43114/address/0x89da56e409dDef3C52BdCfBeFC9b595870880bAA/portfolio_v2/?quote-currency=USD&format=JSON&key=ckey_4dc37b7f69b2402b817bb51c5a0');
 		//console.log(response.data.data);
 		setItems(response.data.data);
 		
