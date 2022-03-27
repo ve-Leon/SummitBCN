@@ -1,5 +1,4 @@
 import { Button, Heading, Box, Flex, AspectRatio } from '@chakra-ui/react';
-import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -27,8 +26,6 @@ export default function LearnAboutStakingAndLending() {
 					</Box>
 					<AspectRatio ratio={16 / 9} width={['200px', '400px', '500px']}>
 						<iframe
-							// width="560"
-							// height="315"
 							src="https://www.youtube.com/embed/vZ2UZdB07fo"
 							frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
