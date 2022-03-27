@@ -30,7 +30,7 @@ export default function InformAddCreditCard() {
 					<Box>
 						<Link href="https://www.avax.network/" isExternal>
 							{/* How does this works? <ExternalLinkIcon mx="2px" /> */}
-							How does this works?{' '}
+							How does this work?{' '}
 							<Icon as={BiLinkExternal} color="#e84142" mx="2px" pt="5px" />
 						</Link>
 					</Box>
