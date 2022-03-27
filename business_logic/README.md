@@ -1,0 +1,1 @@
+Requires an .env file setup to input the private keys - terra wallet mnemonic etc

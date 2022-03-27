@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": ["src", "gmp"],
+  "exclude": ["node_modules"]
+}

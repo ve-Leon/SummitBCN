@@ -6,6 +6,7 @@ import { BiLinkExternal } from '@react-icons/all-files/bi/BiLinkExternal';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { investLowRisk } from '../../../../business_logic/crossChainService';
 
 // TODO: connect to API to get currency symbol and amount
 export async function getServerSideProps(context) {
@@ -20,14 +21,14 @@ export async function getServerSideProps(context) {
 export default function ShowRiskOptions({ currencySymbol, amountOfCurrency }) {
 	// Three level of risk: 'low', 'medium' and 'high'
 	const [levelOfRisk, setLevelOfRisk] = useState();
-
+s
 	const router = useRouter();
 
 	// TODO: fill with the logic
 	async function submitLevelOfRisk(level) {
 		console.log();
-		if (level == 'low') {
-			// Connect to API
+		if (level == 'low') { // hard-coded wallet address to match dashboard for now
+			investLowRisk(amountOfCurrency, '0x7BD4F00D6e8fF333F71e514aE3376Dc822334E43');
 		} else if (level == 'medium') {
 			// Connect to API
 		} else {
