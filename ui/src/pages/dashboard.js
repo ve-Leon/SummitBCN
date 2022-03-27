@@ -1,7 +1,7 @@
-import { Heading } from '@chakra-ui/react';
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { ChakraProvider } from '@chakra-ui/react'
+import { Heading, Flex, Box } from '@chakra-ui/react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import {
 	Stat,
 	StatArrow,
@@ -11,98 +11,99 @@ import {
 	StatUpArrow,
 	StatHelpText,
 	StatDownArrow,
-  } from "@chakra-ui/stat";
+} from '@chakra-ui/stat';
+import Head from 'next/head';
 
 export default function Dashboard() {
 
-  const [items, setItems] = useState([]);
-  
-  const [currentValue, setCurrentValue] = useState([]);
+	const [items, setItems] = useState([]);
+	
+	const [currentValue, setCurrentValue] = useState([]);
 
-  const [todayValue, setTodayValue] = useState([]);
-  const [todayPercentage, setTodayPercentage] = useState([]);
+	const [todayValue, setTodayValue] = useState([]);
+	const [todayPercentage, setTodayPercentage] = useState([]);
 
-  const [lastWeekValue, setLastWeekValue] = useState([]);
-  const [lastWeekPercentage, setLastWeekPercentage] = useState([]);
+	const [lastWeekValue, setLastWeekValue] = useState([]);
+	const [lastWeekPercentage, setLastWeekPercentage] = useState([]);
 
-  const [lastMonthValue, setLastMonthValue] = useState([]);
-  const [lastMonthPercentage, setLastMonthPercentage] = useState([]);
+	const [lastMonthValue, setLastMonthValue] = useState([]);
+	const [lastMonthPercentage, setLastMonthPercentage] = useState([]);
 
-  let apiResponse;
+	let apiResponse;
 
-  useEffect(() => {
-      getData()  
-  }, [])
+	useEffect(() => {
+		getData();
+	}, []);
 
-  
+	const getData = async () => {
+		
+		//using axios
+		try {
+		const response = await axios.get('https://api.covalenthq.com/v1/43114/address/0x7BD4F00D6e8fF333F71e514aE3376Dc822334E43/portfolio_v2/?quote-currency=USD&format=JSON&key=ckey_4dc37b7f69b2402b817bb51c5a0');
+		//console.log(response.data.data);
+		setItems(response.data.data);
+		
+		let _todayValue = await getTodayValue(response.data.data);
+		let _lastWeekValue = await getLastWeekValue(response.data.data);
+		let _lastMonthValue = await getLastMonthValue(response.data.data);
+		
+		let _currentValue = await getCurrentValue(response.data.data);
 
-  const getData = async () => {
+		setCurrentValue(_currentValue);
+		setTodayValue(_todayValue);
+		setLastWeekValue(_lastWeekValue);
+		setLastMonthValue(_lastMonthValue);
+
+		} catch (err) {
+			// Handle Error Here
+			console.error(err);
+		}
+	};
+
+	const getCurrentValue = async (items) => {
+		return items.items[0].holdings[0].quote_rate;
+	}
+
+  	const getTodayValue = async (items) => {
     
-    //using axios
-    try {
-      const response = await axios.get('https://api.covalenthq.com/v1/43114/address/0x7BD4F00D6e8fF333F71e514aE3376Dc822334E43/portfolio_v2/?quote-currency=USD&format=JSON&key=ckey_4dc37b7f69b2402b817bb51c5a0');
-      //console.log(response.data.data);
-      setItems(response.data.data);
-      
-      let _todayValue = await getTodayValue(response.data.data);
-      let _lastWeekValue = await getLastWeekValue(response.data.data);
-      let _lastMonthValue = await getLastMonthValue(response.data.data);
-      
-	  let _currentValue = await getCurrentValue(response.data.data);
+		let i_1 = items.items[0].holdings[0].quote_rate;
+		let i_0 = items.items[0].holdings[1].quote_rate;
+		setTodayPercentage((i_1 / i_0 - 1) * 100);
 
-      setCurrentValue(_currentValue);
-      setTodayValue(_todayValue);
-      setLastWeekValue(_lastWeekValue);
-      setLastMonthValue(_lastMonthValue);
+		return i_1 - i_0;
+	};
 
-    } catch (err) {
-      // Handle Error Here
-      console.error(err);
-     }
-     
-  }
+	const getLastWeekValue = async (items) => {
+		let i_1 = items.items[0].holdings[0].quote_rate;
+		let i_0 = items.items[0].holdings[6].quote_rate;
 
-  const getCurrentValue = async (items) => {
-	  return items.items[0].holdings[0].quote_rate;
-  }
+		setLastWeekPercentage((i_1 / i_0 - 1) * 100);
 
-  const getTodayValue = async (items) => {
-    
-    let i_1 = items.items[0].holdings[0].quote_rate;
-    let i_0 = items.items[0].holdings[1].quote_rate;
+		return i_1 - i_0;
+	};
 
-    setTodayPercentage((((i_1/i_0)-1)*100));
+	const getLastMonthValue = async (items) => {
+		let i_1 = items.items[0].holdings[0].quote_rate;
+		let i_0 = items.items[0].holdings[29].quote_rate;
 
-    return (i_1 - i_0);
-    
-  }
+		setLastMonthPercentage((i_1 / i_0 - 1) * 100);
 
-  const getLastWeekValue = async (items) => {
-
-    let i_1 = items.items[0].holdings[0].quote_rate;
-    let i_0 = items.items[0].holdings[6].quote_rate;
-
-    setLastWeekPercentage((((i_1/i_0)-1)*100));
-    
-    return (i_1 - i_0);
-    
-  }
-
-  const getLastMonthValue = async (items) => {
-    
-    let i_1 = items.items[0].holdings[0].quote_rate;
-    let i_0 = items.items[0].holdings[29].quote_rate;
-
-    setLastMonthPercentage((((i_1/i_0)-1)*100));
-    
-    return (i_1 - i_0);
-  }
+		return i_1 - i_0;
+	};
 
 	return (
 		<>
-			<Heading>Balance: $ {parseFloat(currentValue).toFixed(2)}</Heading>
+			
+			
+			
+			
 			<center>
+			<h1 style={{color: "red"}}><strong>Crypto Wallet!</strong></h1>
+			<br/>
 
+			<h2 ><strong style={{color: "red"}}>Balance: </strong> <strong>${parseFloat(currentValue).toFixed(2)}</strong></h2>
+			
+			<br/>
 			<StatGroup>
 				<Stat>
 				<StatLabel>Today</StatLabel>
@@ -116,6 +117,7 @@ export default function Dashboard() {
 					}
 					{parseFloat(todayPercentage).toFixed(2)}%
 				</StatHelpText>
+				
 				</Stat>
       			<Stat>
 					<StatLabel>Last Week</StatLabel>
@@ -130,6 +132,7 @@ export default function Dashboard() {
 						{parseFloat(lastWeekPercentage).toFixed(2)}%
 					</StatHelpText>
 				</Stat>
+				
 				<Stat>
 				<StatLabel>Last Month</StatLabel>
 				<StatNumber>${parseFloat(lastMonthValue).toFixed(2)}</StatNumber>
@@ -147,6 +150,7 @@ export default function Dashboard() {
     		</StatGroup>
 
 			</center>
+			
 		</>
 	);
 }

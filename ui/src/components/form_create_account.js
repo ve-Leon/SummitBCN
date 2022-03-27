@@ -5,44 +5,55 @@ export default function FormCreateAccount({ nextPagePath }) {
 	const router = useRouter();
 
 	// Handles the submit event on form submit.
-	// More about forms https://nextjs.org/docs/guides/building-forms
+	// More about forms on https://nextjs.org/docs/guides/building-forms
 	const handleSubmit = async (event) => {
 		// Stop the form from submitting and refreshing the page.
 		event.preventDefault();
 
-		// Get data from the form.
-		const data = {
-			email: event.target.email.value,
-			password: event.target.password.value,
-		};
+		const emailField = event.target.email.value;
+		const passwordField = event.target.password.value;
+		console.log(passwordField);
 
-		// Send the data to the server in JSON format.
-		const JSONdata = JSON.stringify(data);
+		// Very simple validation
+		if (typeof emailField == 'string' && passwordField != null) {
+			// Persist data only on the sesssion
+			sessionStorage.setItem('email', emailField);
+			sessionStorage.setItem('password', passwordField);
 
-		// API endpoint where we send form data.
-		const endpoint = '/api/form';
+			///// If you want to send data to an API.
+			// // Get data from the form.
+			// const data = {
+			// 	email: event.target.email.value,
+			// 	password: event.target.password.value,
+			// };
+			// // Send the data to the server in JSON format.
+			// const JSONdata = JSON.stringify(data);
 
-		// Form the request for sending data to the server.
-		const options = {
-			// The method is POST because we are sending data.
-			method: 'POST',
-			// Tell the server we're sending JSON.
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			// Body of the request is the JSON data we created above.
-			body: JSONdata,
-		};
+			// // API endpoint where we send form data.
+			// const endpoint = '/api/form';
 
-		// // Send the form data to our forms API on Vercel and get a response.
-		// const response = await fetch(endpoint, options);
+			// // Form the request for sending data to the server.
+			// const options = {
+			// 	// The method is POST because we are sending data.
+			// 	method: 'POST',
+			// 	// Tell the server we're sending JSON.
+			// 	headers: {
+			// 		'Content-Type': 'application/json',
+			// 	},
+			// 	// Body of the request is the JSON data we created above.
+			// 	body: JSONdata,
+			// };
 
-		// // Get the response data from server as JSON.
-		// // If server returns the name submitted, that means the form works.
-		// const result = await response.json();
-		// // TODO: show user a confirmation message
-		// // alert(`Is this your full name: ${result.data}`);
-		router.push(nextPagePath);
+			// // // Send the form data to our forms API on Vercel and get a response.
+			// // const response = await fetch(endpoint, options);
+
+			// // Get the response data from server as JSON.
+			// // If server returns the name submitted, that means the form works.
+			// const result = await response.json();
+			// // TODO: show user a confirmation message
+			// // alert(`Is this your full name: ${result.data}`);
+			router.push(nextPagePath);
+		}
 	};
 
 	return (

@@ -2,7 +2,7 @@ import { Button, Heading, Box, Flex } from '@chakra-ui/react';
 import Link from 'next/link';
 import Head from 'next/head';
 
-export default function DontCreateAccount() {
+export default function LearnAboutStaking() {
 	return (
 		<>
 			<Head>
@@ -24,9 +24,9 @@ export default function DontCreateAccount() {
 					</Heading>
 					<Box mt={30}>
 						<Button width={['250px', '300px']}>
-							<a target="_blank" href="https://www.avax.network/">
-								I want more details
-							</a>
+							<Link href="/steps/learn_about_staking_and_lending">
+								<a>I want more details</a>
+							</Link>
 						</Button>
 					</Box>
 				</Flex>

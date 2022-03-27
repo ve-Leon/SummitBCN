@@ -99,7 +99,7 @@ export default class Wallet {
 		};
 	}
 
-	redirectToAddMoney(address) {
+	redirectToAddMoney(address, redirectPath) {
 		console.log('transakApiKey', this.transakApiKey);
 		console.log('random', randomToken(10));
 		let transak = new transakSDK({
@@ -116,7 +116,7 @@ export default class Wallet {
 			themeColor: '#000', // App theme color
 			fiatCurrency: 'EUR', // If you want to limit fiat selection eg 'USD'
 			email: randomToken(10) + '@test.com', // Your customer's email address
-			redirectURL: '',
+			redirectURL: redirectPath,
 		});
 
 		transak.init();
