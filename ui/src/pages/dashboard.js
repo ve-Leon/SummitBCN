@@ -15,7 +15,10 @@ import {
 
 export default function Dashboard() {
 
-	const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
+  
+  const [currentValue, setCurrentValue] = useState([]);
+
   const [todayValue, setTodayValue] = useState([]);
   const [todayPercentage, setTodayPercentage] = useState([]);
 
@@ -44,9 +47,11 @@ export default function Dashboard() {
       let _todayValue = await getTodayValue(response.data.data);
       let _lastWeekValue = await getLastWeekValue(response.data.data);
       let _lastMonthValue = await getLastMonthValue(response.data.data);
+      
+	  let _currentValue = await getCurrentValue(response.data.data);
 
+      setCurrentValue(_currentValue);
       setTodayValue(_todayValue);
-
       setLastWeekValue(_lastWeekValue);
       setLastMonthValue(_lastMonthValue);
 
@@ -55,6 +60,10 @@ export default function Dashboard() {
       console.error(err);
      }
      
+  }
+
+  const getCurrentValue = async (items) => {
+	  return items.items[0].holdings[0].quote_rate;
   }
 
   const getTodayValue = async (items) => {
@@ -91,7 +100,7 @@ export default function Dashboard() {
 
 	return (
 		<>
-			<Heading>Dashboard</Heading>
+			<Heading>Balance: $ {parseFloat(currentValue).toFixed(2)}</Heading>
 			<center>
 
 			<StatGroup>
@@ -136,6 +145,7 @@ export default function Dashboard() {
 				</Stat>
     
     		</StatGroup>
+
 			</center>
 		</>
 	);
